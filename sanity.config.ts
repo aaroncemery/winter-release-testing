@@ -8,7 +8,7 @@ import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { presentationTool } from 'sanity/presentation';
-
+import { resolve } from './src/sanity/presentation/resolve';
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from './src/sanity/env';
 import { schema } from './src/sanity/schemaTypes';
@@ -23,6 +23,7 @@ export default defineConfig({
   plugins: [
     structureTool({ structure }),
     presentationTool({
+      resolve,
       previewUrl: {
         previewMode: {
           enable: '/api/draft-mode/enable',
@@ -34,4 +35,10 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
   ],
+  beta: {
+    create: {
+      startInCreateEnabled: true,
+      fallbackStudioOrigin: 'my-cool-project.sanity.studio',
+    },
+  },
 });
