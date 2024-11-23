@@ -38,7 +38,7 @@ export default defineConfig({
   beta: {
     create: {
       startInCreateEnabled: true,
-      fallbackStudioOrigin: 'my-cool-project.sanity.studio',
+      fallbackStudioOrigin: 'aaron-winter-release.sanity.studio',
     },
   },
 });
