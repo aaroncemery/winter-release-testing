@@ -30,3 +30,7 @@ export async function GET() {
     );
   }
 }
+
+export const config = {
+  matcher: ['/some-path/:path*', '/another-path/:path*'], // Define paths for middleware
+};

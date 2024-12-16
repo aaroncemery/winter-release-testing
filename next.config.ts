@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     ],
   },
   // other config options here
+  redirects: async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/redirects`);
+    const redirects = await response.json();
+    return redirects;
+  },
 };
 
 export default nextConfig;
